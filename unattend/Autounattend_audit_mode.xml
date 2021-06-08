@@ -103,8 +103,8 @@
                             <PlainText>true</PlainText>
                         </Password>
                         <Description>Administrator for ansible</Description>
-                        <DisplayName>Administrator</DisplayName>
-                        <Name>Administrator</Name>
+                        <DisplayName>Admin</DisplayName>
+                        <Name>Admin</Name>
                         <Group>Administrators</Group>
                     </LocalAccount>
                 </LocalAccounts>
@@ -117,7 +117,7 @@
                 </Password>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
-                <Username>Administrator</Username>
+                <Username>Admin</Username>
             </AutoLogon>
 
         </component>
