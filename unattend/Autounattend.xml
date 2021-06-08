@@ -97,9 +97,9 @@
                             <Value>cABhAHMAcwB3AG8AcgBkAFAAYQBzAHMAdwBvAHIAZAA=</Value>
                             <PlainText>false</PlainText>
                         </Password>
-                        <Description>Admin for ansible</Description>
-                        <DisplayName>Admin</DisplayName>
-                        <Name>Admin</Name>
+                        <Description>Administrator for ansible</Description>
+                        <DisplayName>Administrator</DisplayName>
+                        <Name>Administrator</Name>
                         <Group>Administrators</Group>
                     </LocalAccount>
                 </LocalAccounts>
