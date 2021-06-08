@@ -49,54 +49,54 @@
       --network network=default \
       --boot hd,cdrom --noautoconsole
 
-#   - name: loop until windows2019 vm will be stopped during install
-#     virt:
-#       name: win2019
-#       command: status
-#     register: win2019_status
-#     until: win2019_status.status == "shutdown"
-#     retries: 10
-#     delay: 120
+  - name: loop until windows2019 vm will be stopped during install
+    virt:
+      name: win2019
+      command: status
+    register: win2019_status
+    until: win2019_status.status == "shutdown"
+    retries: 10
+    delay: 120
 
-#   - name: show win2019 vm status                 
-#     debug:
-#       msg: "{{ win2019_status }}"
+  - name: show win2019 vm status                 
+    debug:
+      msg: "{{ win2019_status }}"
 
-#   - name: start win2019
-#     virt:
-#       name: win2019
-#       state: running
+  - name: start win2019
+    virt:
+      name: win2019
+      state: running
 
-#   - pause:
-#       minutes: 10
+  - pause:
+      minutes: 10
 
-#   - name: get ip of win2019 vm
-#     shell: virsh domifaddr win2019 | grep ipv4 | awk  '{print $4}' | sed -r 's/\/.+//'
-#     register: win2019ip
+  - name: get ip of win2019 vm
+    shell: virsh domifaddr win2019 | grep ipv4 | awk  '{print $4}' | sed -r 's/\/.+//'
+    register: win2019ip
 
-#   - name: show win2019 ip                 
-#     debug:
-#       msg: "{{ win2019ip.stdout }}"
+  - name: show win2019 ip                 
+    debug:
+      msg: "{{ win2019ip.stdout }}"
 
-# - hosts: 127.0.0.1
-#   gather_facts: no
-#   vars:
-#     ansible_host: "{{ win2019ip.stdout }}"
-#     ansible_port: 5986
-#     ansible_connection: winrm
-#     ansible_winrm_server_cert_validation: ignore
-#     ansible_winrm_transport: ntlm
-#     ansible_winrm_scheme: https
-#     ansible_user: Administrator
-#     ansible_password: password
+- hosts: 127.0.0.1
+  gather_facts: no
+  vars:
+    ansible_host: "{{ win2019ip.stdout }}"
+    ansible_port: 5986
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: ntlm
+    ansible_winrm_scheme: https
+    ansible_user: Administrator
+    ansible_password: password
 
-#   tasks:
+  tasks:
 
-#   - name: wait for system to become reachable over WinRM
-#     wait_for_connection:
-#       delay: 60
-#       sleep: 15
-#       timeout: 900
+  - name: wait for system to become reachable over WinRM
+    wait_for_connection:
+      delay: 60
+      sleep: 15
+      timeout: 900
 
-#   - name: ping
-#     win_ping:
+  - name: ping
+    win_ping:
