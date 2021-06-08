@@ -1,0 +1,35 @@
+# install updates
+
+- name: start wuauserv
+  win_service:
+    name: wuauserv
+    state: started
+    
+- name: search for Windows updates 
+  win_updates:
+    state: searched
+  register: update_search_result
+
+- name: reboot, if needed.
+  win_reboot:
+    pre_reboot_delay: 300
+    reboot_timeout: 6000
+  when: update_search_result.reboot_required
+
+- name: Install all security, critical, and rollup updates
+  win_updates:
+    category_names: 
+      - Application
+      - Connectors
+      - CriticalUpdates
+      - DefinitionUpdates
+      - DeveloperKits
+      - FeaturePacks
+      - Guidance
+      - SecurityUpdates
+      - ServicePacks
+      - Tools
+      - UpdateRollups
+      - Updates
+    reboot: True
+    reboot_timeout: 3600

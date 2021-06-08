@@ -1,0 +1,2 @@
+- name: Remove smb1protocol
+  win_shell: Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol -NoRestart

@@ -100,3 +100,8 @@
 
   - name: ping
     win_ping:
+
+  - include: SMB1.yml
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
