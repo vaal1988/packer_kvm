@@ -1,0 +1,12 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+
+  tasks:
+
+  - name: download iso , using https://tb.rg-adguard.net/
+    get_url:
+      url: https://tb.rg-adguard.net/dl.php?go=4319364f
+      dest: /var/lib/libvirt/images/Windows2019_OEM_X64_EN-US.ISO
+      mode: '0755'
