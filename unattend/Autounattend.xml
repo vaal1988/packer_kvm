@@ -49,10 +49,11 @@
                 <OSImage>
                     <InstallFrom>
                         <MetaData wcm:action="add">
-                            <Key>/IMAGE/NAME</Key>
-                            <Value>Windows Server 2019 Essentials</Value>
+                            <Key>/image/index</Key>
+                            <Value>0</Value>
                         </MetaData>
                     </InstallFrom>
+
                     <InstallTo>
                         <DiskID>0</DiskID>
                         <PartitionID>2</PartitionID>
