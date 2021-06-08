@@ -96,19 +96,19 @@
 		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 			
 			<FirstLogonCommands>
+
 				<SynchronousCommand wcm:action="add">
 					<Order>1</Order>
 					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vaal1988/windows_server/main/powershell/fix_network.ps1'))"</CommandLine>
 					<Description>fix_network</Description>
 				</SynchronousCommand>
-			</FirstLogonCommands>
 
-			<FirstLogonCommands>
 				<SynchronousCommand wcm:action="add">
 					<Order>2</Order>
 					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))"</CommandLine>
 					<Description>allow ansible</Description>
 				</SynchronousCommand>
+
 			</FirstLogonCommands>
 
 		</component>
