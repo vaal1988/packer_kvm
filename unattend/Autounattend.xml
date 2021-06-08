@@ -47,7 +47,7 @@
             </DiskConfiguration>
             <ImageInstall>
                 <OSImage>
-                
+
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/image/index</Key>
@@ -67,7 +67,7 @@
                     <WillShowUI>OnError</WillShowUI>
                 </ProductKey>
                 <AcceptEula>true</AcceptEula>
-                <FullName>Valentin Gusachenko</FullName>
+                <FullName>FullName</FullName>
                 <Organization>Organization</Organization>
             </UserData>
         </component>
