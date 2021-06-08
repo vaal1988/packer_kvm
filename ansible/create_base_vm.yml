@@ -10,3 +10,41 @@
       url: https://tb.rg-adguard.net/dl.php?go=4319364f
       dest: /var/lib/libvirt/images/Windows2019_OEM_X64_EN-US.ISO
       mode: '0755'
+
+  - name: delete disket if exist
+    file:
+      state: absent
+      path: "/var/lib/libvirt/images/windows2019_am_unattend.img"
+
+  - name: create disket
+    shell: mkfs.msdos -C /var/lib/libvirt/images/windows2019_am_unattend.img 1440
+
+  - name: create a directory /media/floppy , if it does not exist
+    ansible.builtin.file:
+      path: /media/floppy
+      state: directory
+      mode: '0755'
+
+  - name: mount
+    shell: mount -o loop /var/lib/libvirt/images/windows2019_am_unattend.img /media/floppy/
+    
+  - name: download autounattend.xml 
+    get_url:
+      url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/unattend/audit_mode.xml
+      dest: /media/floppy/autounattend.xml 
+      mode: '0755'
+
+  - name: ummount
+    shell: umount /media/floppy/
+
+  - name: install vm 
+    shell: |
+      virt-install \
+      --hvm --graphics vnc \
+      --name win10 --os-variant win10 \
+      --vcpu 2 --ram 4096 \
+      --disk path=/var/lib/libvirt/images/win10.qcow2,size=70 \
+      --disk path=/var/lib/libvirt/images/audit_mode_unattend.img,device=floppy \
+      --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
+      --network network=default \
+      --boot hd,cdrom --noautoconsole
