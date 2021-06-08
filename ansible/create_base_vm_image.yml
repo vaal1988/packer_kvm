@@ -16,17 +16,17 @@
       state: absent
       path: "/var/lib/libvirt/images/windows2019_am_unattend.img"
 
-#   - name: create disket
-#     shell: mkfs.msdos -C /var/lib/libvirt/images/windows2019_am_unattend.img 1440
+  - name: create disket
+    shell: mkfs.msdos -C /var/lib/libvirt/images/windows2019_am_unattend.img 1440
 
-#   - name: create a directory /media/floppy , if it does not exist
-#     ansible.builtin.file:
-#       path: /media/floppy
-#       state: directory
-#       mode: '0755'
+  - name: create a directory /media/floppy , if it does not exist
+    ansible.builtin.file:
+      path: /media/floppy
+      state: directory
+      mode: '0755'
 
-#   - name: mount
-#     shell: mount -o loop /var/lib/libvirt/images/windows2019_am_unattend.img /media/floppy/
+  - name: mount
+    shell: mount -o loop /var/lib/libvirt/images/windows2019_am_unattend.img /media/floppy/
 
 #   - name: download autounattend.xml 
 #     get_url:
@@ -34,8 +34,8 @@
 #       dest: /media/floppy/autounattend.xml 
 #       mode: '0755'
 
-#   - name: ummount
-#     shell: umount /media/floppy/
+  - name: ummount
+    shell: umount /media/floppy/
 
   - name: install vm 
     shell: |
@@ -44,7 +44,8 @@
       --name win2019 --os-variant win2k19 \
       --vcpu 2 --ram 4096 \
       --disk path=/var/lib/libvirt/images/windows2019.qcow2,size=60 \
-      --cdrom=/var/lib/libvirt/images/Windows2019_OEM_X64_EN-US.ISO \
+      --disk path=/var/lib/libvirt/images/windows2019_am_unattend.img,device=floppy \
+      --cdrom=/var/lib/libvirt/images/windows-server-2019-standard-x64-eval.iso \
       --network network=default \
       --boot hd,cdrom --noautoconsole
 
