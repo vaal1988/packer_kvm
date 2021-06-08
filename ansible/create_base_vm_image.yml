@@ -28,11 +28,11 @@
   - name: mount
     shell: mount -o loop /var/lib/libvirt/images/windows2019_am_unattend.img /media/floppy/
 
-#   - name: download autounattend.xml 
-#     get_url:
-#       url: https://raw.githubusercontent.com/vaal1988/windows_server/main/unattend/Autounattend.xml
-#       dest: /media/floppy/autounattend.xml 
-#       mode: '0755'
+  - name: download autounattend.xml 
+    get_url:
+      url: https://raw.githubusercontent.com/vaal1988/windows_server/main/unattend/Autounattend_audit_mode.xml
+      dest: /media/floppy/autounattend.xml 
+      mode: '0755'
 
   - name: ummount
     shell: umount /media/floppy/
