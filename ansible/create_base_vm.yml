@@ -30,7 +30,7 @@
     
   - name: download autounattend.xml 
     get_url:
-      url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/unattend/audit_mode.xml
+      url: https://raw.githubusercontent.com/vaal1988/windows_server/main/unattend/Autounattend.xml
       dest: /media/floppy/autounattend.xml 
       mode: '0755'
 
@@ -41,10 +41,10 @@
     shell: |
       virt-install \
       --hvm --graphics vnc \
-      --name win10 --os-variant win10 \
+      --name win2019 --os-variant win2k19 \
       --vcpu 2 --ram 4096 \
-      --disk path=/var/lib/libvirt/images/win10.qcow2,size=70 \
-      --disk path=/var/lib/libvirt/images/audit_mode_unattend.img,device=floppy \
-      --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
+      --disk path=/var/lib/libvirt/images/win10.qcow2,size=60 \
+      --disk path=/var/lib/libvirt/images/windows2019_am_unattend.img,device=floppy \
+      --cdrom=/var/lib/libvirt/images/Windows2019_OEM_X64_EN-US.ISO \
       --network network=default \
       --boot hd,cdrom --noautoconsole
