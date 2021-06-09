@@ -1,0 +1,39 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "accelerator": "kvm",
+      "cpus": "2",
+      "memory": "4096",
+      "disk_size": "51200",
+      "floppy_files": [
+        "unattend/autounattend.xml",
+        "drivers/*"
+      ],
+      "disk_interface": "virtio",
+      "disk_cache": "writeback",
+      "disk_discard": "ignore",
+      "format": "qcow2",
+      "headless": "false",
+      "iso_urls": [
+        "https://software-download.microsoft.com/download/pr/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso"
+      ],
+      "iso_checksum": "3022424f777b66a698047ba1c37812026b9714c5",
+      "shutdown_command": "A:\\sysprep.bat",
+      "shutdown_timeout": "15m",
+      "output_directory": "/var/tmp/windows-server-2019-standard-x64-qemu",
+      "vm_name": "windows-server-2019-standard-x64",
+      "use_default_display": false,
+      "communicator": "winrm",
+      "winrm_username": "Admin",
+      "winrm_password": "password",
+      "winrm_insecure": "true",
+      "winrm_use_ssl": "true",
+      "winrm_timeout": "30m"
+    }
+  ],
+  "provisioners": [
+    { "duration": "2m", "type": "sleep" },
+    { "scripts": ["./powershell/download_puppet.ps1"], "type": "powershell" }
+  ]
+}

@@ -1,0 +1,25 @@
+- hosts: 127.0.0.1
+  gather_facts: no
+
+  vars:
+    ansible_port: 5986
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: ntlm
+    ansible_winrm_scheme: https
+    ansible_user: Admin
+    ansible_password: password
+
+  tasks:
+
+  - name: wait for system to become reachable over WinRM
+    wait_for_connection:
+      delay: 60
+      sleep: 15
+      timeout: 900
+
+  - name: ping
+    win_ping:
+
+  - include: SMB1.yml
+  - include: InstallUpdates.yml

@@ -1,3 +1,7 @@
 # windows_server
 
-ansible-pull -U https://github.com/vaal1988/windows_server.git -i localhost, ansible/create_base_vm_image.yml
+drivers from :
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+
+#       "shutdown_command": "%WINDIR%\\System32\\Sysprep\\sysprep.exe /generalize /oobe /shutdown /unattend:A:\\unattend.xml",
