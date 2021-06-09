@@ -39,7 +39,7 @@
   <settings pass="specialize">
 
     <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="neutral" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
-      <ComputerName>windows2019</ComputerName>
+      <ComputerName>win2019</ComputerName>
       <CopyProfile>false</CopyProfile>
     </component>
 

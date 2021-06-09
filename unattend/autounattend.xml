@@ -72,7 +72,6 @@
             </ImageInstall>
 
             <UserData>
-							<!-- Product Key from https://www.microsoft.com/en-us/evalcenter/ -->
 							<ProductKey>
 								<!-- <Key>...</Key> -->
 								<WillShowUI>OnError</WillShowUI>
@@ -104,6 +103,12 @@
 					<Description>allow ansible</Description>
 				</SynchronousCommand>
 
+				<SynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
+					<Description>Set Execution Policy RemoteSigned</Description>
+				</SynchronousCommand>
+
 			</FirstLogonCommands>
 
 		</component>
@@ -128,7 +133,7 @@
 				</LocalAccounts>
 			</UserAccounts>
 
-			<AutoLogon>
+			<!-- <AutoLogon>
 				<Enabled>true</Enabled>
 				<LogonCount>1</LogonCount>
 				<Username>Admin</Username>
@@ -136,7 +141,7 @@
 						<Value>password</Value>
 						<PlainText>true</PlainText>
 				</Password>
-			</AutoLogon>
+			</AutoLogon> -->
 
 		</component>
 
