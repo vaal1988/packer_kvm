@@ -103,11 +103,11 @@
 					<Description>allow ansible</Description>
 				</SynchronousCommand>
 
-				<SynchronousCommand wcm:action="add">
+				<!-- <SynchronousCommand wcm:action="add">
 					<Order>2</Order>
-					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
+					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Set Execution-Policy  RemoteSigned -Force"</CommandLine>
 					<Description>Set Execution Policy RemoteSigned</Description>
-				</SynchronousCommand>
+				</SynchronousCommand> -->
 
 			</FirstLogonCommands>
 

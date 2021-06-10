@@ -19,7 +19,7 @@
         "https://software-download.microsoft.com/download/pr/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso"
       ],
       "iso_checksum": "3022424f777b66a698047ba1c37812026b9714c5",
-      "shutdown_command": "%WINDIR%\\System32\\Sysprep\\sysprep.exe /generalize /oobe /shutdown /unattend:A:\\unattend.xml",
+      "shutdown_command": "C:\\Windows\\Temp\\sysprep.bat",
       "shutdown_timeout": "15m",
       "output_directory": "/var/tmp/windows-server-2019-standard-x64-qemu",
       "vm_name": "windows-server-2019-standard-x64",
@@ -34,15 +34,16 @@
   ],
   "post-processors": [
     {
-      "keep_input_artifact": false,
-      "compression_level": 9,
-      "output": "windows-server-2019-standard-x64.box",
-      "type": "vagrant",
-      "vagrantfile_template": "windows.template"
+      "keep_input_artifact": false, "compression_level": 9,
+      "type": "vagrant", "vagrantfile_template": "windows.template",
+      "output": "/var/tmp/windows-server-2019-standard-x64.box"
     }
   ],
   "provisioners": [
-    { "duration": "2m", "type": "sleep" },
-    { "scripts": ["./powershell/download_puppet.ps1"], "type": "powershell" }
+    { "type": "sleep", "duration": "2m" },
+    { "type": "file", "source": "unattend/unattend.xml", "destination": "C:\\Windows\\Temp\\unattend.xml" },
+    { "type": "file", "source": "scripts/sysprep.bat", "destination": "C:\\Windows\\Temp\\sysprep.bat" },
+    { "type": "powershell", "inline": ["Set Execution-Policy  RemoteSigned -Force"] },
+    { "type": "powershell", "scripts": ["./scripts/download_puppet.ps1"] }
   ]
 }
