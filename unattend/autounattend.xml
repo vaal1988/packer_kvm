@@ -103,12 +103,6 @@
 					<Description>allow ansible</Description>
 				</SynchronousCommand>
 
-				<!-- <SynchronousCommand wcm:action="add">
-					<Order>2</Order>
-					<CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Set Execution-Policy  RemoteSigned -Force"</CommandLine>
-					<Description>Set Execution Policy RemoteSigned</Description>
-				</SynchronousCommand> -->
-
 			</FirstLogonCommands>
 
 		</component>
@@ -132,16 +126,6 @@
 					</LocalAccount>
 				</LocalAccounts>
 			</UserAccounts>
-
-			<!-- <AutoLogon>
-				<Enabled>true</Enabled>
-				<LogonCount>1</LogonCount>
-				<Username>Admin</Username>
-				<Password>
-						<Value>password</Value>
-						<PlainText>true</PlainText>
-				</Password>
-			</AutoLogon> -->
 
 		</component>
 
