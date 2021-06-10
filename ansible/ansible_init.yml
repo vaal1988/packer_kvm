@@ -1,14 +1,11 @@
-- hosts: 127.0.0.1
-  gather_facts: no
+- hosts: all
 
   vars:
-    ansible_port: 5986
     ansible_connection: winrm
     ansible_winrm_server_cert_validation: ignore
-    ansible_winrm_transport: ntlm
-    ansible_winrm_scheme: https
-    ansible_user: Admin
-    ansible_password: password
+    ansible_winrm_connection_timeout: 1000 
+    ansible_winrm_operation_timeout_sec: 1000 
+    ansible_winrm_read_timeout_sec: 1000
 
   tasks:
 
@@ -21,5 +18,7 @@
   - name: ping
     win_ping:
 
-  - include: SMB1.yml
-  - include: InstallUpdates.yml
+  - include: Chocolatey.yml
+
+  # - include: SMB1.yml
+  # - include: InstallUpdates.yml

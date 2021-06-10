@@ -10,7 +10,7 @@
     state: searched
   register: update_search_result
 
-- name: reboot, if needed.
+- name: reboot, if needed
   win_reboot:
     pre_reboot_delay: 300
     reboot_timeout: 6000

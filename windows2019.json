@@ -41,6 +41,13 @@
   ],
   "provisioners": [
     { "type": "sleep", "duration": "2m" },
+    
+    { 
+      "type": "shell-local",
+      "command": "ansible-playbook --extra-vars='ansible_user=Admin ansible_password=password' -i 127.0.0.1, ansible/ansible_init.yml",
+      "environment_vars": [ "ANSIBLE_REMOTE_PORT={{ build `Port` }}" ]
+    },
+
     { "type": "file", "source": "scripts/sysprep.bat",         "destination": "C:\\Windows\\Temp\\sysprep.bat" },
     { "type": "file", "source": "unattend/unattend.xml",       "destination": "C:\\Windows\\Temp\\unattend.xml" },
 
