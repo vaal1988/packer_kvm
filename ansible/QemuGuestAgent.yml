@@ -1,0 +1,12 @@
+- name: Download qemu-ga
+  win_get_url:
+    url: https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-101.2.0-1.el7ev/qemu-ga-x86_64.msi
+    dest: C:\Windows\Temp\qemu-ga-x86_64.msi
+
+- name: Install qemu-ga
+  win_package:
+    path: C:\Windows\Temp\qemu-ga-x86_64.msi
+    state: present
+    arguments:
+    - /qn 
+    - /norestart

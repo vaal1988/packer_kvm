@@ -48,8 +48,8 @@
       "environment_vars": [ "ANSIBLE_REMOTE_PORT={{ build `Port` }}" ]
     },
 
-    { "type": "file", "source": "scripts/sysprep.bat",         "destination": "C:\\Windows\\Temp\\sysprep.bat" },
-    { "type": "file", "source": "unattend/unattend.xml",       "destination": "C:\\Windows\\Temp\\unattend.xml" },
+    { "type": "file", "source": "scripts/sysprep.bat",              "destination": "C:\\Windows\\Temp\\sysprep.bat" },
+    { "type": "file", "source": "unattend/unattend.xml",            "destination": "C:\\Windows\\Temp\\unattend.xml" },
 
     { "type": "powershell", "inline": ["Set Execution-Policy  RemoteSigned -Force"] },
 
@@ -57,6 +57,14 @@
       "./scripts/install_puppet.ps1"
     ],
     "type": "powershell"
+    },
+    {
+      "type": "windows-shell",
+      "inline": [
+        "vssadmin delete shadows /for=c: /all",
+        "dism /online /cleanup-image /spsuperseded",
+        "sdelete -z c:"
+      ]
     }
   ]
 }
