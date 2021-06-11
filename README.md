@@ -1,4 +1,4 @@
-# packer KVM windows templates
+# KVM packer templates
 
 ### Drivers from:
 * [https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
@@ -9,8 +9,6 @@
 
 ### Puppet Agent from:
 * [https://downloads.puppetlabs.com/windows/puppet6/](https://downloads.puppetlabs.com/windows/puppet6/puppet-agent-6.22.1-x64.msi)
-
-
 
 
 build box:
