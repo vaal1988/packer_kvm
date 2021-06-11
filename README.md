@@ -1,4 +1,4 @@
-# packer template windows-server-2019-standard
+# packer KVM windows templates
 
 ### Drivers from:
 * [https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
@@ -23,9 +23,4 @@ packer build -only="qemu" windows2019.json
 add box:
 ```bash
 vagrant box add --name windows-server-2019-standard-x64 /var/tmp/windows-server-2019-standard-x64.box
-```
-
-get md5 checksum
-```bash
-md5sum /var/tmp/windows-server-2019-standard-x64.box
 ```
