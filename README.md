@@ -3,6 +3,12 @@
 drivers from:
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
 
+QEMU Guest Agent from:
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-101.2.0-1.el7ev/
+
+puppet agent from:
+https://downloads.puppetlabs.com/windows/puppet6/
+
 build box:
 ```bash
 export TMPDIR="/var/tmp"
