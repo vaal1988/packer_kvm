@@ -22,3 +22,4 @@ add box:
 ```bash
 vagrant box add --name windows-server-2019-standard-x64 /var/tmp/windows-server-2019-standard-x64.box
 ```
+
