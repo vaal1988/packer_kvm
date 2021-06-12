@@ -7,7 +7,7 @@
       "memory": "4096",
       "disk_size": "51200",
       "floppy_files": [
-        "unattend/2019/autounattend.xml",
+        "unattend/2019-core/autounattend.xml",
         "drivers/*"
       ],
       "disk_interface": "virtio",
@@ -21,8 +21,8 @@
       "iso_checksum": "3022424f777b66a698047ba1c37812026b9714c5",
       "shutdown_command": "C:\\Windows\\Temp\\sysprep.bat",
       "shutdown_timeout": "15m",
-      "output_directory": "/var/tmp/windows-server-2019-standard",
-      "vm_name": "windows-server-2019-standard",
+      "output_directory": "/var/tmp/windows-server-2019core-standard",
+      "vm_name": "windows-server-2019core-standard",
       "use_default_display": false,
       "communicator": "winrm",
       "winrm_username": "Admin",
@@ -36,7 +36,7 @@
     {
       "keep_input_artifact": false, "compression_level": 9,
       "type": "vagrant", "vagrantfile_template": "windows.template",
-      "output": "/var/tmp/windows-server-2019-standard.box"
+      "output": "/var/tmp/windows-server-2019core-standard.box"
     }
   ],
   "provisioners": [
@@ -66,6 +66,6 @@
       ]
     },
     { "type": "file", "source": "scripts/sysprep.bat",         "destination": "C:\\Windows\\Temp\\sysprep.bat" },
-    { "type": "file", "source": "unattend/2019/unattend.xml",  "destination": "C:\\Windows\\Temp\\unattend.xml" }
+    { "type": "file", "source": "unattend/2019-core/unattend.xml",  "destination": "C:\\Windows\\Temp\\unattend.xml" }
   ]
 }
