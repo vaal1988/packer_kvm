@@ -14,7 +14,7 @@
       "disk_cache": "writeback",
       "disk_discard": "ignore",
       "format": "qcow2",
-      "headless": "false",
+      "headless": true,
       "iso_urls": [
         "https://software-download.microsoft.com/download/pr/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso"
       ],
