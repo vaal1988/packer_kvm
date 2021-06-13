@@ -39,8 +39,7 @@
     - "Balloon"
     - "viorng"
     - "vioserial"
-    - "NetKVM"
-    - "viostor"
+
 
 # - name: Copy a driver folders
 #   win_copy:
