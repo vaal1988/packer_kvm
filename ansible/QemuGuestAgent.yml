@@ -32,19 +32,8 @@
 - name: Install RH certificate (Balloon) to TrustedPublisher certificate store
   win_command: 'certutil.exe -f -addstore "TrustedPublisher" {{ ansible_env.TEMP }}\redhat_balloon.cer'
 
-  # - name: install drivers
-  #   win_shell: "pnputil.exe /add-driver {{ disk_image_out.mount_path }}{{ item }}\\2k19\\amd64\\*.inf /install"
-  #   with_items:
-  #     - "qxldod"
-  #     - "Balloon"
-  #     - "viorng"
-  #     - "vioserial"
-
-- name: Copy a driver folders
-  win_copy:
-    src: "{{ disk_image_out.mount_path }}{{ item }}\\2k19\\amd64\\"
-    dest: "C:\\Windows\\temp\\drivers\\{{ item }}\\"
-    remote_src: True
+- name: install drivers
+  win_shell: "pnputil.exe /add-driver {{ disk_image_out.mount_path }}{{ item }}\\2k19\\amd64\\*.inf /install"
   with_items:
     - "qxldod"
     - "Balloon"
@@ -52,6 +41,19 @@
     - "vioserial"
     - "NetKVM"
     - "viostor"
+
+# - name: Copy a driver folders
+#   win_copy:
+#     src: "{{ disk_image_out.mount_path }}{{ item }}\\2k19\\amd64\\"
+#     dest: "C:\\Windows\\temp\\drivers\\{{ item }}\\"
+#     remote_src: True
+#   with_items:
+#     - "qxldod"
+#     - "Balloon"
+#     - "viorng"
+#     - "vioserial"
+#     - "NetKVM"
+#     - "viostor"
 
 - win_disk_image:
     image_path: "{{ ansible_env.TEMP }}\\virtio-win.iso"
