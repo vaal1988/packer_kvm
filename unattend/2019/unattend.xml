@@ -34,14 +34,6 @@
 				</SynchronousCommand>
 			</FirstLogonCommands>
 
-			<FirstLogonCommands>
-				<SynchronousCommand wcm:action="add">
-					<Order>2</Order>
-					<CommandLine>cd C:\Windows\temp\drivers && for /f %i in ('dir /b /s *.inf') do pnputil.exe -i -a %i</CommandLine>
-					<Description>Adding drivers</Description>
-				</SynchronousCommand>
-			</FirstLogonCommands>
-
     </component>
 
   </settings>
