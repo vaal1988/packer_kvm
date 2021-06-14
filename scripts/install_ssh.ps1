@@ -1,4 +1,5 @@
 # https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
+# powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vaal1988/packer_kvm/main/scripts/install_ssh.ps1'))"
 
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 

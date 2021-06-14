@@ -40,7 +40,6 @@
     - "viorng"
     - "vioserial"
 
-
 # - name: Copy a driver folders
 #   win_copy:
 #     src: "{{ disk_image_out.mount_path }}{{ item }}\\2k19\\amd64\\"
