@@ -21,4 +21,4 @@
   - include: Chocolatey.yml
   - include: QemuGuestAgent.yml
   - include: SMB1.yml
-  - include: InstallUpdates.yml
+  # - include: InstallUpdates.yml
