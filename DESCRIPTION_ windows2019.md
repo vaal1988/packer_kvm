@@ -1,5 +1,4 @@
 ### Clean and minimal Windows Server 2019 Standard base box for libvirt with :
-
 - chocolatey
 - updates (12.06.2021)
 - drivers (viostor, netkvm, viorng, vioserial, qxldod, balloon)
@@ -8,9 +7,7 @@
 - winrm enabled
 
 ### Login Credentials
-
 Username: Admin
-
 Password: password
 
 ### Vagrantfile example :
