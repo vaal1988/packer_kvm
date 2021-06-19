@@ -8,6 +8,7 @@
 
 ### Login Credentials
 Username: Admin
+
 Password: password
 
 ### Vagrantfile example :
