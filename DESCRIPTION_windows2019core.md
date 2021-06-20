@@ -1,6 +1,6 @@
 ### Clean and minimal Windows Server CORE 2019 Standard base box for libvirt with :
 - chocolatey
-- updates (12.06.2021)
+- updates
 - drivers (viostor, netkvm, viorng, vioserial, qxldod, balloon)
 - qemu guest agent
 - wget
