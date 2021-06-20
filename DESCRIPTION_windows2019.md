@@ -20,7 +20,6 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
 
 Vagrant.configure("2") do |config|
 
-  ##### DEFINE win01 VM #####
   config.vm.define "win01" do |config|
   config.vm.hostname         = "win01"
   config.vm.box              = "vgusachenko/windows-server-2019"
