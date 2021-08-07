@@ -1,10 +1,16 @@
 # install updates
 
+- name: wait for system to become reachable over WinRM
+  wait_for_connection:
+    delay: 60
+    sleep: 15
+    timeout: 900
+
 - name: start wuauserv
   win_service:
     name: wuauserv
     state: started
-    
+
 - name: search for Windows updates 
   win_updates:
     state: searched
