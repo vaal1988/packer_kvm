@@ -46,7 +46,7 @@
 
     {
       "type": "shell-local",
-      "command": "ansible-playbook --extra-vars='ansible_user=Admin ansible_password=password' -i 127.0.0.1, ansible/ansible_init.yml",
+      "command": "ansible-playbook --extra-vars='ansible_user=Admin ansible_password=password' -i 127.0.0.1, ansible/main.yml",
       "environment_vars": [ "ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_REMOTE_PORT={{ build `Port` }}" ]
     },
     {
