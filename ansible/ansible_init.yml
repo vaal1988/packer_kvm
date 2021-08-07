@@ -18,10 +18,10 @@
   - name: ping
     win_ping:
 
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
+
   - include: Chocolatey.yml
   - include: QemuGuestAgent.yml
   - include: SMB1.yml
-  
-  - include: InstallUpdates.yml
-  - include: InstallUpdates.yml
-  - include: InstallUpdates.yml
